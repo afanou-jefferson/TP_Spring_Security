@@ -30,7 +30,7 @@ public class SecurityUserService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		User user = userRepository.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(username));
 	
-		// L'art de se faire chier :
+		// Skip la complexité
 		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
 //		user.getRoles().stream()
 //			.peek(role -> authorities.add(new SimpleGrantedAuthority("ROLE_" + role.getLabel())))

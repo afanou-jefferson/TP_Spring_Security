@@ -49,6 +49,7 @@ public class CellController {
 	@PutMapping("/{id}")
 	public Cell updateCell(@PathVariable Long id, @RequestBody Cell cell) throws NotFoundException {
 		Optional<Cell> existingCell = cellRepository.findById(id);
+		
 		if (existingCell.isPresent()) {
 			cell.setId(id);
 			return cellRepository.save(cell);

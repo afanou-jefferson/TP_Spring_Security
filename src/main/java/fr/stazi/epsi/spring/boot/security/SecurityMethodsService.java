@@ -15,7 +15,7 @@ public class SecurityMethodsService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	//UserDetails équivaut User pour SpringSecurity
+	//UserDetails équivaut à User pour SpringSecurity
 	public boolean canManage( UserDetails userConnecte, Long idCell ) {
 		
 		User user = userRepository.findByUsername(userConnecte.getUsername()).orElseThrow(() -> new UsernameNotFoundException(userConnecte.getUsername()));
